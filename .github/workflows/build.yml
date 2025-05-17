@@ -10,7 +10,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        #os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest]
 
     steps:
       - uses: actions/checkout@v3
@@ -25,11 +26,7 @@ jobs:
 
       - name: build using build mechanism from WebGPU-distribution
         run: |
-          wget https://github.com/eliemichel/WebGPU-distribution/archive/refs/tags/dawn-7069.tar.gz
-          tar -xzf dawn-7069.tar.gz
-          mv WebGPU-distribution-dawn-7069 webgpu
-          cmake -B build -DCMAKE_BUILD_TYPE=Release
-          cmake -B build -DCMAKE_BUILD_TYPE=Release -DWEBGPU_BACKEND=DAWN -DWEBGPU_BUILD_FROM_SOURCE=ON
+          ./build.sh
 
       - name: Archive build
         run: |

@@ -1,13 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
-#wget https://github.com/eliemichel/WebGPU-distribution/archive/refs/tags/dawn-7069.tar.gz
+git clone --depth=1 https://dawn.googlesource.com/dawn
 
-#tar -xzf dawn-7069.tar.gz
+cd dawn
 
-#mv WebGPU-distribution-dawn-7069 webgpu
+cmake -S . -B out/Release -DDAWN_FETCH_DEPENDENCIES=ON -DDAWN_ENABLE_INSTALL=ON -DCMAKE_BUILD_TYPE=Release
 
-
-cmake -B build -DCMAKE_BUILD_TYPE=Release -DWEBGPU_BACKEND=DAWN -DWEBGPU_BUILD_FROM_SOURCE=ON
-
-cmake --build build --config Release
+cmake --build out/Release
