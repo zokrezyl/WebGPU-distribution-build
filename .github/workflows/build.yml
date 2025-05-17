@@ -1,0 +1,42 @@
+name: Build Dawn (Linux & macOS)
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install dependencies (Linux)
+      if: runner.os == 'Linux'
+      run: sudo apt update && sudo apt install -y cmake ninja-build python3
+
+    - name: Install dependencies (macOS)
+      if: runner.os == 'macOS'
+      run: brew install cmake ninja python
+
+    - name: Clone Dawn via WebGPU-distribution
+      run: |
+        git clone https://github.com/eliemichel/WebGPU-distribution
+        cd WebGPU-distribution
+        cmake -B build -DCMAKE_BUILD_TYPE=Release
+        cmake --build build --config Release
+
+    - name: Archive build
+      run: |
+        mkdir -p artifacts
+        cp -r WebGPU-distribution/build artifacts/webgpu
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: dawn-webgpu-${{ matrix.os }}
+        path: artifacts/webgpu
