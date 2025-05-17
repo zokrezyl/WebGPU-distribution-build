@@ -26,7 +26,7 @@ jobs:
 
       - name: build using build mechanism from WebGPU-distribution
         run: |
-          ./build.sh
+          ./bin/build.sh
 
       - name: Archive build
         run: |
