@@ -39,11 +39,10 @@ jobs:
 
       - name: Archive build
         run: |
-          mkdir -p artifacts
-          cp -r WebGPU-distribution/build artifacts/webgpu
+          ./bin/core-artifacts.sh
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: dawn-webgpu-${{ matrix.os }}
-          path: artifacts/webgpu
+          path: artifacts
