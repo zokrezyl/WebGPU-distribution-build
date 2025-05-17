@@ -19,4 +19,4 @@ echo "first step"
 cmake -S . -B out/Release -DDAWN_FETCH_DEPENDENCIES=ON -DDAWN_ENABLE_INSTALL=ON -DCMAKE_BUILD_TYPE=Release
 
 echo "second step"
-cmake --build out/Release -- -j4
+cmake --build out/Release -- -j12

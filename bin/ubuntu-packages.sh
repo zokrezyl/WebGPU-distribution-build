@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-
+set -e
 apt-get update
 apt-get install -y \
   git \
@@ -7,8 +7,8 @@ apt-get install -y \
   ninja-build \
   python3 python3-pip python3-dev \
   build-essential \
-  libx11-dev \
   clang lld \
+  libx11-dev \
   libxrandr-dev \
   libxinerama-dev \
   libxcursor-dev \
