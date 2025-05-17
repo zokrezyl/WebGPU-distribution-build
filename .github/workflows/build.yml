@@ -24,9 +24,17 @@ jobs:
         if: runner.os == 'macOS'
         run: brew install cmake ninja python
 
-      - name: build using build mechanism from WebGPU-distribution
+      - name: checkout
         run: |
-          ./bin/build.sh
+          ./bin/core-checkout.sh
+
+      - name: build
+        run: |
+          ./bin/core-build.sh
+
+      - name: test
+        run: |
+          ./bin/core-test.sh
 
       - name: Archive build
         run: |
