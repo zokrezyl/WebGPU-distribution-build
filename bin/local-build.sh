@@ -20,6 +20,7 @@ if [ $(uname -s) = "Linux" ]; then
 
 else
   if [ $(uname -s) = "Darwin" ]; then
+    bin/darwin-packages.sh
     echo "MacOS detected"
   else
     echo "Unknown OS detected"
