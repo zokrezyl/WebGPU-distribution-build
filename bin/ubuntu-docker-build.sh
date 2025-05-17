@@ -7,6 +7,7 @@ docker build bin -t ubuntu-build-image
 docker run -it \
   -w /build \
   -e DOCKER_BUILD=true \
+  -v$PWD/docker-build:/build \
   -v$PWD/bin:/build/bin \
   ubuntu-build-image \
-  ./bin/build.sh
+  ./bin/local-build.sh
