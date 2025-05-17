@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
+
+
 set -e
+
+sudo apt-get update
+sudo apt-get install -y libx11-dev libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev
 
 git clone --depth=1 https://dawn.googlesource.com/dawn
 
