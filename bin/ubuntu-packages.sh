@@ -13,4 +13,5 @@ apt-get install -y \
   libxrandr-dev \
   libxinerama-dev \
   libxcursor-dev \
-  libxi-dev 
+  libxi-dev \
+  libx11-xcb-dev
