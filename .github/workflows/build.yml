@@ -13,10 +13,11 @@ jobs:
         #os: [ubuntu-latest, macos-latest, windows-latest]
         #os: [ubuntu-latest, macos-latest]
         #os: [ubuntu-latest]
-       - runner:              { os: macos-14,  arch: arm64 }  # Apple-silicon
-       - runner:              { os: macos-13, arch x64}
-       - runner:              { os: ubuntu-latest, arch: x64 }
-       - runner:              { os: windows-latest, arch: x64 }
+        include:
+        - runner:              { os: macos-14,  arch: arm64 }  # Apple-silicon
+        - runner:              { os: macos-13, arch x64}
+        - runner:              { os: ubuntu-latest, arch: x64 }
+        - runner:              { os: windows-latest, arch: x64 }
     steps:
       - uses: actions/checkout@v3
 
