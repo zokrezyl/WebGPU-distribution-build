@@ -47,7 +47,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: dawn-webgpu-${{ matrix.os }}
+          name: dawn-${{ matrix.os }}-${{ matrix.architecture }}
           path: artifacts
 
   release:
