@@ -9,7 +9,7 @@ brew update
 brew install llvm@19
 
 # Optionally install other dependencies for Dawn
-brew install cmake ninja python pkg-config
+brew install cmake ninja pkg-config
 
 # Optionally verify installation
 brew info llvm
