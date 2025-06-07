@@ -5,6 +5,7 @@ set -e
 
 source bin/os.sh
 
+uname -a
 cd dawn
 
 export CC=clang
