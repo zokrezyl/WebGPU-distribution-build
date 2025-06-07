@@ -44,13 +44,13 @@ jobs:
 
       - name: Archive build
         run: |
-          ./bin/core-artifacts.sh
+          ./bin/core-artifacts.sh dawn-{{ matrix.os }}-{{ matrix.architecture }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: dawn-${{ matrix.os }}-${{ matrix.architecture }}
-          path: artifacts
+          path: artifacts/dawn-${{ matrix.os }}-${{ matrix.architecture }}.tar.gz
 
   release:
     permissions:
@@ -83,6 +83,6 @@ jobs:
           tag_name: ${{ github.ref_name }}
           name: Release ${{ github.ref_name }}
           files: |
-            artifacts/**/*
+            artifacts/*.tar.gz
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
