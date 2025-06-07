@@ -44,7 +44,7 @@ jobs:
 
       - name: Archive build
         run: |
-          ./bin/core-artifacts.sh dawn-{{ matrix.os }}-{{ matrix.architecture }}
+          ./bin/core-artifacts.sh dawn-${{ matrix.os }}-${{ matrix.architecture }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
